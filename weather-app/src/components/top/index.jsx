@@ -33,6 +33,10 @@ export default class TopSection extends React.Component {
         const { eventEmitter } = this.props;
 
         eventEmitter.emit('updateWeather', locationName);
+
+        this.setState({
+            isSelectLocationOpen: false
+        });
     }
 
 

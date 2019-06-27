@@ -5,6 +5,57 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
+
+    .inner-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        
+        .local-container {
+            background: rgba(255,255,255,0.5);
+            height: 5rem;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+}
+
+.forecastday-container {
+    width: 8rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+    
+        .image {
+            width: 2rem;
+            height: 2rem;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    
+        .text {
+            font-size: 1rem;
+            color: #fff;
+        }
+    
+        .muted-text {
+            font-size: 0.6rem;
+            color: #980;
+        }
+    
 }
 
 @media screen and (min-width: 1000px) {

@@ -15,7 +15,7 @@ export default class App extends Component {
 
     this.state = {
       cityName: 'Biratnagar',
-      forecastDays: 5,
+      numForecastDays: 4,
       isLoading: true,
     };
   }
@@ -34,7 +34,8 @@ export default class App extends Component {
             temp_c: data.current.temp_c,
             isDay: data.current.is_day,
             text: data.current.condition.text,
-            iconURL: data.current.condition.icon
+            iconURL: data.current.condition.icon,
+            forecastdays: data.forecast.forecastday
           });
       }).catch((err) => {
         if(err)
@@ -55,7 +56,7 @@ export default class App extends Component {
 
   render() {
 
-    const { isLoading, cityName, temp_c, isDay, text, iconURL } = this.state;
+    const { isLoading, cityName, temp_c, isDay, text, iconURL, forecastdays } = this.state;
 
     return (
       <div className="app-container">
@@ -75,7 +76,7 @@ export default class App extends Component {
           }
 
           <div className="bottom-section">
-              <BottomSection />
+              <BottomSection forecastdays={forecastdays} />
           </div>
         </div>
       </div>
