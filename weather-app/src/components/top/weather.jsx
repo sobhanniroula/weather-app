@@ -16,7 +16,7 @@ export default class Weather extends React.Component {
 
 
     render() {
-        const { location, temp_c, isDay, text, iconURL } = this.props;
+        const { location, temp_c, text, iconURL } = this.props;
 
         return (
             <div className="weather-container">

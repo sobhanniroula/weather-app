@@ -21,9 +21,9 @@ export default class App extends Component {
   }
 
   updateWeather() {
-    const { cityName, forecastDays } = this.state;
+    const { cityName, numForecastDays } = this.state;
 
-    const URL = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${forecastDays}`;
+    const URL = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${numForecastDays}`;
 
     axios.get(URL)
       .then((res) => {
@@ -31,6 +31,7 @@ export default class App extends Component {
       }).then((data) => {
           this.setState({
             isLoading: false,
+            time: data.current.last_updated,
             temp_c: data.current.temp_c,
             isDay: data.current.is_day,
             text: data.current.condition.text,
@@ -56,7 +57,7 @@ export default class App extends Component {
 
   render() {
 
-    const { isLoading, cityName, temp_c, isDay, text, iconURL, forecastdays } = this.state;
+    const { isLoading, time, cityName, temp_c, isDay, text, iconURL, forecastdays } = this.state;
 
     return (
       <div className="app-container">
@@ -76,7 +77,7 @@ export default class App extends Component {
           }
 
           <div className="bottom-section">
-              <BottomSection forecastdays={forecastdays} />
+              <BottomSection forecastdays={forecastdays} time={time} />
           </div>
         </div>
       </div>
