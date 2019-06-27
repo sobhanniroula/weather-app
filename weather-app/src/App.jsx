@@ -20,8 +20,9 @@ export default class App extends Component {
     };
   }
 
-  componentDidMount() {
+  updateWeather() {
     const { cityName, forecastDays } = this.state;
+
     const URL = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${forecastDays}`;
 
     axios.get(URL)
@@ -34,11 +35,21 @@ export default class App extends Component {
             isDay: data.current.is_day,
             text: data.current.condition.text,
             iconURL: data.current.condition.icon
-          })
+          });
       }).catch((err) => {
         if(err)
           console.error("Cannot fetch the Weather Data, ", err);
-      })
+      });
+  }
+
+  componentDidMount() {
+    const { eventEmitter } = this.props;
+    
+    this.updateWeather();
+
+      eventEmitter.on('updateWeather', (data) => {
+        this.setState({ cityName: data }, () => this.updateWeather());
+      });
   }
 
 
@@ -58,6 +69,7 @@ export default class App extends Component {
                   isDay={isDay} 
                   text={text} 
                   iconURL={iconURL} 
+                  eventEmitter={this.props.eventEmitter}
                 />
             </div>
           }
