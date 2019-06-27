@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import './sass/app.scss';
+import TopSection from './components/top';
+import BottomSection from './components/bottom';
+
+
 
 class App extends Component {
   render() {
@@ -8,11 +13,11 @@ class App extends Component {
       <div className="app-container">
         <div className="main-container">
           <div className="top-section">
-              TOP
+             <TopSection />
           </div>
 
           <div className="bottom-section">
-              BOTTOM
+              <BottomSection />
           </div>
         </div>
       </div>

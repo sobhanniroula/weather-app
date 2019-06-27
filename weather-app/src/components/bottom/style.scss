@@ -1,0 +1,15 @@
+.bottom-container {
+    background: linear-gradient(180deg, #6abeca 0%, rgba(58,98,104,0.1) 100%), url('https://photo-cdn.urdupoint.com/media/2016/10/_3/730x425/pic_1477577827.jpg');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+}
+
+@media screen and (min-width: 1000px) {
+    .bottom-container {
+        background-position: center center;
+    }
+    
+}

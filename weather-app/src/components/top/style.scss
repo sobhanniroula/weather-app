@@ -1,0 +1,93 @@
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        color: #fff;
+        font-size: 2rem;
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+
+    .weather-container {
+        margin-top: 1.8rem;
+        color: #fff;
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .inner-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+
+            .image {
+                i {
+                    font-size: 3rem;
+                    margin-right: 1.2rem;
+                }
+            }
+
+            .current-weather {
+                padding: 0.4rem 0;
+                font-size: 2rem;
+            }
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+    }
+
+}
+
+.btn-select-location {
+    background-color: #343b40e8;
+    color: #ccc;
+    height: 2.2rem;
+    width: 8.5rem;
+    margin-top: 2rem;
+    border: 1px solid #343b40e8;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    .top-container {
+        .title {
+            font-size: 1.3rem;
+        }
+        .weather-container {
+            .header{}
+            .inner-container {
+                margin-top: 1rem;
+                .image {
+                    i { 
+                        font-size: 2.5rem; 
+                        margin-right: 0.7rem;
+                    }
+                }
+                .current-weather {
+                    padding: 0;
+                }
+            }
+            .footer {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .btn-select-location {
+        margin-top: 1.2rem;
+    }
+    
+}
